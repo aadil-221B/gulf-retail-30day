@@ -1,6 +1,6 @@
 # Gulf Retail Analytics – 30-Day Sprint
 
-![ci](https://github.com/YOUR_USER/gulf-retail-30day/actions/workflows/ci.yml/badge.svg)
+![ci](https://github.com/aadil-221B/gulf-retail-30day/actions/workflows/ci.yml/badge.svg)
 ![BigQuery](https://img.shields.io/badge/warehouse-BigQuery-34A853?style=flat-square)
 ![dbt](https://img.shields.io/badge/transform-dbt-FF694B?style=flat-square)
 ![Looker](https://img.shields.io/badge/dashboard-Looker-4285F4?style=flat-square)
