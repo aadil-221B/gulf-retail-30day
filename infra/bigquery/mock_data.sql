@@ -37,3 +37,4 @@ SELECT e.order_id,
 FROM expand e
 JOIN gulf_retail.orders o ON o.order_id = e.order_id
 JOIN gulf_retail.products p ON p.product_id = 1001 + MOD(e.order_id + e.line,100);
+# CI Trigger
