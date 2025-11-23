@@ -4,6 +4,23 @@
 ## 🎯 Business Outcome
 Replace manual Excel reporting with automated dashboard, saving 5 hours/week for merchandising team.
 
+
+
+## 🗃️ Data Model
+![ER Diagram](../assets/erd/final_erd.png)
+
+**Key Relationships:**
+- 1 Customer → Many Orders (One-to-Many)
+- 1 Order → Many Order Lines (One-to-Many)  
+- 1 Product → Many Order Lines (One-to-Many)
+
+**Business Metrics Available:**
+- Daily revenue = SUM(order_lines.net_line_amount)
+- Customer lifetime value = Total spend per customer
+- Product performance = Revenue by product/category
+- Discount impact analysis = discount_pct effects
+
+
 ## ✅ Deliverables Checklist
 - [ ] `src/daily_revenue.sql` (partitioned by order_date)  
 - [ ] `src/customer_lifetime_value.sql` (window functions)  
