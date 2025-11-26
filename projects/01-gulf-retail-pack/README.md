@@ -21,6 +21,11 @@ Replace manual Excel reporting with automated dashboard, saving 5 hours/week for
 - Discount impact analysis = discount_pct effects
 
 
+
+
+## Live Dashboard
+[![Dashboard Preview](assets/dashboard_preview.png)](https://lookerstudio.google.com/reporting/af62a8a1-3070-416b-8cc0-c15839b12c3f)
+
 ## ✅ Deliverables Checklist
 - [ ] `src/daily_revenue.sql` (partitioned by order_date)  
 - [ ] `src/customer_lifetime_value.sql` (window functions)  
