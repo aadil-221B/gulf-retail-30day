@@ -5,7 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: sqlfluff/sqlfluff-github-action@v0.16.2
+      # Use the latest version of the action (e.g., v2 or main)
+      # This action is designed to work with recent SQLFluff versions
+      - uses: sqlfluff/sqlfluff-github-action@v2
         with:
+          # You can specify the version or let the action use its default (recommended)
           sqlfluff_version: "2.3.5"
           dialect: bigquery
