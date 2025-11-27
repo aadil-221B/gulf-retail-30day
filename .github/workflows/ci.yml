@@ -1,19 +1,40 @@
-name: sql-lint
+name: sql-lint-and-fix
 on: [push, pull_request]
+
 jobs:
-  lint:
+  lint-and-fix:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Check out the repository using GITHUB_TOKEN
+      # Important: For auto-commit to work on 'pull_request' events from forks,
+      # you may need specific PAT (Personal Access Token) configuration in repository settings.
+      # For standard branch pushes, GITHUB_TOKEN works fine.
       - uses: actions/checkout@v4
+        with:
+          # This line ensures the auto-commit action has permission to push changes back.
+          token: ${{ secrets.GITHUB_TOKEN }} 
       
+      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
+      # Step 3: Install the specific version of SQLFluff
       - name: Install SQLFluff
-        # Change the version number here to the latest stable release (3.5.0)
         run: pip install sqlfluff==3.5.0
 
-      - name: Run SQLFluff Lint
-        run: sqlfluff lint . --dialect bigquery
+      # Step 4: Run 'sqlfluff fix' to automatically format files
+      - name: Run SQLFluff Fix
+        # Use 'sqlfluff fix' to apply fixes automatically
+        run: sqlfluff fix . --dialect bigquery --verbose
+
+      # Step 5: Automatically commit and push any changes made by the 'fix' command
+      - name: Commit SQLFluff fixes
+        # This action detects changes and creates a commit/push if files were modified
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: ":adhesive_bandage: Apply automatic SQLFluff formatting fixes"
+          # Optional: Define who the commit is attributed to
+          commit_author: "GitHub Actions <actions@github.com>"
+
