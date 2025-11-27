@@ -5,10 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Use the latest version of the action (e.g., v2 or main)
-      # This action is designed to work with recent SQLFluff versions
-      - uses: sqlfluff/sqlfluff-github-action@v2
+      # Use the 'main' branch for the latest version of the action
+      - uses: sqlfluff/sqlfluff-github-action@main
         with:
-          # You can specify the version or let the action use its default (recommended)
+          # This should now work correctly with the current action wrapper
           sqlfluff_version: "2.3.5"
           dialect: bigquery
